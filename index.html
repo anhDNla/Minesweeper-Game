@@ -1,0 +1,224 @@
+<html>
+
+<head>
+	<title>Minesweeper</title>
+	<script type="text/javascript" src="function.js"></script>
+	<script type="text/javascript" src="class.js"></script>
+</head>
+
+<body onload="avoid_image_loading_delay()">
+	<button id="start">Start</button>&nbsp;&nbsp;&nbsp;&nbsp;
+	<span id="game_over" style="display: none">Game Over</span>
+	<br /><br />
+	<script>
+		let game = new Minesweeper(15, 15, 0.1);
+
+		let style = document.createElement('style');
+		style.innerHTML = `
+				.game-button {
+					width: 30px;
+					height: 30px;
+					background-size: cover;
+					border: 1px solid #ccc;
+				}
+			`;
+		document.head.appendChild(style);
+
+		game.init_board(true);
+		game.lock();
+
+		const BombLeft = document.getElementById('BL');
+		const text = document.getElementById("game_over");
+
+		const MinF = document.getElementById("MinF");
+		const MinS = document.getElementById("MinS");
+		const SecF = document.getElementById("SecF");
+		const SecS = document.getElementById("SecS");
+
+		const Colon = document.getElementById("colon");
+
+		let CountTime = 0;
+		let ButtonVer = 0;
+		const MaxTime = 60 * 60;
+
+		function increase(x) {
+			if (CountTime >= MaxTime) {
+				game.lock();
+
+				text.innerHTML = "Game Over";
+				text.style.display = 'block';
+
+				MinF.src = "extra_credit/d0.png";
+				MinS.src = "extra_credit/d0.png";
+				SecF.src = "extra_credit/d0.png";
+				SecS.src = "extra_credit/d0.png";
+
+				return;
+			}
+
+			if (text.style.display === 'block' || ButtonVer !== x) {
+				return;
+			}
+
+			CountTime++;
+
+			const min = Math.floor(CountTime / 60);
+			const sec = CountTime - min * 60;
+
+			const MF = Math.floor(min / 10);
+			const MS = min - MF * 10;
+
+			const SF = Math.floor(sec / 10);
+			const SS = sec - SF * 10;
+
+			MinF.src = "extra_credit/d" + MF + ".png";
+			MinS.src = "extra_credit/d" + MS + ".png";
+			SecF.src = "extra_credit/d" + SF + ".png";
+			SecS.src = "extra_credit/d" + SS + ".png";
+
+			setTimeout(() => increase(x), 1000);
+		}
+
+		let startButton = document.getElementById('start');
+		startButton.addEventListener('click', function () {
+			ButtonVer++;
+
+			if (startButton.innerHTML === "Reset") {
+				game.init_board(false);
+				game.lock();
+				startButton.innerHTML = "Start";
+
+				BombLeft.style.display = 'none';
+
+				MinF.src = "extra_credit/d0.png";
+				MinS.src = "extra_credit/d0.png";
+				SecF.src = "extra_credit/d0.png";
+				SecS.src = "extra_credit/d0.png";
+			} else {
+				game.unlock();
+				startButton.innerHTML = "Reset";
+
+				BombLeft.style.display = 'block';
+				CountTime = 0;
+				increase(ButtonVer);
+			}
+		});
+	</script>
+</body>
+
+</html>
+
+
+
+
+
+<!-- <html>
+
+<head>
+	<title>Minesweeper</title>
+	<script type="text/javascript" src="function.js"></script>
+	<script type="text/javascript" src="class.js"></script>
+</head>
+
+<body onload="avoid_image_loading_delay()">
+	<button id="start">Start</button>&nbsp;&nbsp;&nbsp;&nbsp;
+	<span id="game_over" style="display: none">Game Over</span>
+	<br /><br />
+	<script>
+		let game =
+			new Minesweeper(<?php echo $_GET['rows'] ?? 15; ?>, <?php echo $_GET['columns'] ?? 15; ?>, <?php echo $_GET['probability_chance'] ?? 0.1; ?>);
+
+		let style = document.createElement('style');
+		style.innerHTML = `
+				.game-button {
+					width: 30px;
+					height: 30px;
+					background-size: cover;
+					border: 1px solid #ccc;
+				}
+			`;
+		document.head.appendChild(style);
+
+		game.init_board(true);
+		game.lock();
+
+		const BombLeft = document.getElementById('BL');
+		const text = document.getElementById("game_over");
+
+		const MinF = document.getElementById("MinF");
+		const MinS = document.getElementById("MinS");
+		const SecF = document.getElementById("SecF");
+		const SecS = document.getElementById("SecS");
+
+		const Colon = document.getElementById("colon");
+
+		let CountTime = 0;
+		let ButtonVer = 0;
+		const MaxTime = 60 * 60;
+
+		function increase(x) {
+			if (CountTime >= MaxTime) {
+				game.lock();
+
+				text.innerHTML = "Game Over";
+				text.style.display = 'block';
+
+				MinF.src = "extra_credit/d0.png";
+				MinS.src = "extra_credit/d0.png";
+				SecF.src = "extra_credit/d0.png";
+				SecS.src = "extra_credit/d0.png";
+
+				return;
+			}
+
+			if (text.style.display === 'block' || ButtonVer !== x) {
+				return;
+			}
+
+			CountTime++;
+
+			const min = Math.floor(CountTime / 60);
+			const sec = CountTime - min * 60;
+
+			const MF = Math.floor(min / 10);
+			const MS = min - MF * 10;
+
+			const SF = Math.floor(sec / 10);
+			const SS = sec - SF * 10;
+
+			MinF.src = "extra_credit/d" + MF + ".png";
+			MinS.src = "extra_credit/d" + MS + ".png";
+			SecF.src = "extra_credit/d" + SF + ".png";
+			SecS.src = "extra_credit/d" + SS + ".png";
+
+			setTimeout(() => increase(x), 1000);
+		}
+
+		let startButton = document.getElementById('start');
+		startButton.addEventListener('click', function () {
+			ButtonVer++;
+
+			if (startButton.innerHTML === "Reset") {
+				game.init_board(false);
+				game.lock();
+				startButton.innerHTML = "Start";
+
+				BombLeft.style.display = 'none';
+
+				MinF.src = "extra_credit/d0.png";
+				MinS.src = "extra_credit/d0.png";
+				SecF.src = "extra_credit/d0.png";
+				SecS.src = "extra_credit/d0.png";
+			} else {
+				game.unlock();
+				startButton.innerHTML = "Reset";
+
+				BombLeft.style.display = 'block';
+				CountTime = 0;
+				increase(ButtonVer);
+			}
+		});
+	</script>
+</body>
+
+</html> -->
