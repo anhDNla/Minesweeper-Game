@@ -51,9 +51,9 @@ Players can choose difficulty levels, interact with a dynamic grid, and receive 
 ## 🛠️ Tech Stack
 
 ### Languages & Tools
-- **HTML5**  
-- **CSS3**  
-- **JavaScript (ES6)**  
+- **HTML**  
+- **CSS**  
+- **JavaScript**  
 - VS Code  
 - Git & GitHub  
 
