@@ -3,7 +3,6 @@
 A fully functional web-based version of the classic **Minesweeper** game, built using **HTML**, **CSS**, and **JavaScript**.  
 This project focuses on game logic, dynamic grid generation, difficulty scaling, user interaction, and responsive UI behavior.
 
----
 
 ## 📌 Project Overview
 
@@ -18,7 +17,6 @@ Players can choose difficulty levels, interact with a dynamic grid, and receive 
 - Interactive design with responsive UI feedback  
 - Smooth gameplay flow with event-driven logic
 
----
 
 ## 🧩 Gameplay Mechanics
 
@@ -49,7 +47,6 @@ Players can choose difficulty levels, interact with a dynamic grid, and receive 
 - Proper event cleanup  
 - Stable, predictable gameplay flow  
 
----
 
 ## 🛠️ Tech Stack
 
@@ -68,18 +65,16 @@ Players can choose difficulty levels, interact with a dynamic grid, and receive 
 - Grid-based layout  
 - State management  
 
----
-
 ## 🏃 How to Run the Game
 
 ### 1. Clone the Repository
 ```bash
-git clone YOUR_REPO_LINK_HERE
+git [clone YOUR_REPO_LINK_HERE](https://github.com/anhDNla/Minesweeper-Game.git)
 ```
 ### 2. Open the Project
 - Open index.html in your browser
 - No server setup required
 
-###3. Play
+### 3. Play
 - Left-click cells to reveal them
 - Right-click to place flags
