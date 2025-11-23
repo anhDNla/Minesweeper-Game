@@ -78,3 +78,25 @@ git clone https://github.com/anhDNla/Minesweeper-Game.git
 ### 3. Play
 - Left-click cells to reveal them
 - Right-click to place flags
+
+## 📁 Project Structure
+- index.html      → Main HTML structure
+- class.js        → Core game logic classes
+- function.js     → Helper functions & utilities
+- /assets         → Images and styles
+- extra_credit    → Additional features
+
+## 🧪 Testing
+- Manual gameplay testing
+- Flag/Reveal logic verification
+- Edge case behavior (first-click safe, auto-expand)
+- Timer and scoring validation
+- Victory/defeat state testing
+- 
+## 🧠 Skills
+- JavaScript · HTML · CSS · DOM Manipulation · Event-driven Programming · Recursion
+Game Logic Design · Responsive UI Design · Debugging · Git · GitHub
+
+## 📜 License
+- This project is for educational and demonstration purposes.
+
