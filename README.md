@@ -69,7 +69,7 @@ Players can choose difficulty levels, interact with a dynamic grid, and receive 
 
 ### 1. Clone the Repository
 ```bash
-git [clone YOUR_REPO_LINK_HERE](https://github.com/anhDNla/Minesweeper-Game.git)
+git clone https://github.com/anhDNla/Minesweeper-Game.git
 ```
 ### 2. Open the Project
 - Open index.html in your browser
